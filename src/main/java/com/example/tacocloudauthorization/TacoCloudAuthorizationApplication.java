@@ -32,24 +32,23 @@ public class TacoCloudAuthorizationApplication {
 //					new User("tacochef", encoder.encode("password"), "ROLE_ADMIN"));
 //		};
 //	}
-@Bean
-public RegisteredClientRepository registeredClientRepository(
-		PasswordEncoder passwordEncoder) {
-	RegisteredClient registeredClient =
-			RegisteredClient.withId(UUID.randomUUID().toString())
-					.clientId("taco-admin-client")
-					.clientSecret(passwordEncoder.encode("secret"))
-					.clientAuthenticationMethod(
-							ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
-					.authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-					.authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-					.redirectUri(
-							"http://127.0.0.1:9090/login/oauth2/code/taco-admin-client")
-					.scope("writeIngredients")
-					.scope("deleteIngredients")
-					.scope(OidcScopes.OPENID)
-					.clientSettings(clientSettings -> clientSettings.requireUserConsent(true))
-					.build();
-	return new InMemoryRegisteredClientRepository(registeredClient);
-}
+//    @Bean
+//    public RegisteredClientRepository registeredClientRepository(PasswordEncoder passwordEncoder) {
+//	RegisteredClient registeredClient =
+//			RegisteredClient.withId(UUID.randomUUID().toString())
+//					.clientId("taco-admin-client")
+//					.clientSecret(passwordEncoder.encode("secret"))
+//					.clientAuthenticationMethod(
+//							ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+//					.authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+//					.authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
+//					.redirectUri(
+//							"http://127.0.0.1:9090/login/oauth2/code/taco-admin-client")
+//					.scope("writeIngredients")
+//					.scope("deleteIngredients")
+//					.scope(OidcScopes.OPENID)
+//					.clientSettings(clientSettings -> clientSettings.requireUserConsent(true))
+//					.build();
+//	return new InMemoryRegisteredClientRepository(registeredClient);
+//}
 }
